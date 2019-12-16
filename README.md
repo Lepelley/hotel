@@ -11,7 +11,9 @@ php -S localhost:8000 -t public
 ## Commands
 Run PHP Code Sniffer :
 vendor/bin/phpcs
+
 Run PHP Code Beautifier and Fixer :
 vendor/bin/phpcbf
+
 Add a administrator (update the add_admin.php file) and execute it using on the folder project : 
 php add_admin.php
