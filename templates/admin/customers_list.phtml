@@ -1,0 +1,41 @@
+<main>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Client</th>
+                <th scope="col">Email</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach($customers as $customer) : ?>
+            <tr>
+                <td>
+                    <?= ($customer->getTitle() == 'F') ? 'Madame' : 'Monsieur' ?>
+                    <?= htmlspecialchars($customer->getLastName()) ?>
+                    <?= htmlspecialchars($customer->getFirstName()) ?>
+                </td>
+                <td><?= htmlspecialchars($customer->getEmail()) ?></td>
+                <td><?= htmlspecialchars($customer->getPhone()) ?></td>
+                <td>
+                    <?= htmlspecialchars($customer->getAddress()) ?>,
+                    <?= htmlspecialchars($customer->getCity()) ?>,
+                    <?= htmlspecialchars($customer->getCountry()) ?>
+                </td>
+                <td>
+                    <a href="<?= route_to_url('admin/customers/update') ?>?id=<?= $customer->getId() ?>" class="btn btn-secondary">
+                        Modifier
+                    </a>
+                    <a href="<?= route_to_url('admin/customers/delete') ?>?id=<?= $customer->getId() ?>" class="btn btn-danger">
+                        Supprimer
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
+</main>

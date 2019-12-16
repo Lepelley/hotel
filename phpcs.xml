@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<ruleset name="Hotel">
+    <description>My formatting rules</description>
+    <arg name="colors"/>
+    <arg value="p"/>
+
+    <file>config</file>
+    <file>public/index.php</file>
+    <file>src</file>
+
+    <rule ref="PSR12"></rule>
+</ruleset>

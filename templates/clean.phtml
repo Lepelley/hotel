@@ -1,0 +1,25 @@
+<main>
+    <h2>Base de donnés clients</h2>
+    <ul>
+        <?php foreach($customers as $customer) : ?>
+            <li>
+                <?= ($customer->getTitle() == 'F') ? 'Madame' : 'Monsieur' ?>
+                <?= htmlspecialchars($customer->getLastName()) ?>
+                <?= htmlspecialchars($customer->getFirstName()) ?>
+                ajouté<?= ($customer->getTitle() === 'F') ? 'e': '' ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <h2>Base de donnés chambres</h2>
+    <ul>
+
+        <?php foreach($rooms as $room) : ?>
+            <li>
+            <?= 
+                $room->getType() . ' ' . $room->getNumber() . ', étage ' . $room->getFloor() 
+            ?>
+            ajoutée
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</main>

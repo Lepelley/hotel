@@ -1,0 +1,40 @@
+<main>
+
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th scope="col">Chambre</th>
+                <th scope="col">Type</th>
+                <th scope="col">Nombre de lits</th>
+                <th scope="col">Air conditionné</th>
+                <th scope="col">Télévision</th>
+                <th scope="col">Coût</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach($rooms as $room) : ?>
+            <tr>
+                <td>
+                    Chambre <?= (int) $room->getNumber() ?>,
+                    Etage <?= (int) $room->getFloor() ?>
+                </td>
+                <td><?= htmlspecialchars($room->getType()) ?></td>
+                <td><?= (int) $room->getBeds() ?></td>
+                <td><?= (int) $room->getHasAirConditioner() ? '&#x2713;' : '&#x274C;' ?></td>
+                <td><?= (int) $room->getHasTelevision() ? '&#x2713;' : '&#x274C;' ?></td>
+                <td><?= (int) $room->getCostPerNight() ?> €</td>
+                <td>
+                    <a href="<?= route_to_url('admin/rooms/update') ?>?id=<?= $room->getId() ?>" class="btn btn-secondary">
+                        Modifier
+                    </a>
+                    <a href="<?= route_to_url('admin/rooms/delete') ?>?id=<?= $room->getId() ?>" class="btn btn-danger">
+                        Supprimer
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
+</main>

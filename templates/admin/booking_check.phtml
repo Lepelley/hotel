@@ -1,0 +1,64 @@
+<main>
+    <form action="" method="post">
+        <p class="form-group col-lg-4">
+            <label for="customerId">Client</label>
+            <select class="form-control" name="customerId" id="customerId" required disabled>
+                <?php foreach ($customers as $customer) : ?>
+                    <option value="<?= $customer->getId() ?>" <?= ($booking->getCustomerId() == $customer->getId()) ? 'selected' : '' ?>>
+                        <?php ($customer->getTitle() === 'F') ? 'Madame' : 'Monsieur' ?>
+                        <?= $customer->getLastName() . ' ' . $customer->getFirstName() ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </p>
+
+        <input type="hidden" name="id" value="<?= $booking->getId() ?>">
+        <input type="hidden" name="customerId" value="<?= $booking->getCustomerId() ?>">
+
+        <div class="row">
+            
+            <p class="form-group col-lg-4">
+                <label for="room">Chambres</label>
+                <select class="form-control" name="room" id="room" required>
+                    <?php foreach ($rooms as $room) : ?>
+                        <option value="<?= $room->getId() ?>">
+                            Chambre n°<?= $room->getNumber() ?> - 
+                            <?= $room->getType() ?>
+                            <?= $room->getBeds() ?> lit(s)
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </p>
+
+            <p class="form-group col-lg-2">
+                <label for="adults">Nombre d'adultes</label>
+                <select class="form-control" name="adults" id="adults" required>
+                    <?php for ($i = 1; $i <= 4; $i++) : ?>
+                        <option <?= ($booking->getAdults() == $i) ? 'selected' : '' ?>><?= $i ?></option>
+                    <?php endfor; ?>
+                </select>
+            </p>
+
+            <p class="form-group col-lg-2">
+                <label for="children">Nombre d'enfants</label>
+                <select class="form-control" name="children" id="children" required>
+                    <?php for ($i = 0; $i <= 4; $i++) : ?>
+                        <option <?= ($booking->getChildren() == $i) ? 'selected' : '' ?>><?= $i ?></option>
+                    <?php endfor; ?>
+                </select>
+            </p>
+
+            <p class="form-group col-lg-2">
+                <label for="checkinDate">Date d'arrivée</label>
+                <input value="<?= $booking->getCheckinDate() ?>" class="form-control" type="date" name="checkinDate" id="checkinDate" required>
+            </p>
+
+            <p class="form-group col-lg-2">
+                <label for="checkoutDate">Date de départ</label>
+                <input value="<?= $booking->getCheckoutDate() ?>" class="form-control" type="date" name="checkoutDate" id="checkoutDate" required>
+            </p>
+
+        </div>
+        <button type="submit" class="btn btn-secondary">Réserver</button>
+    </form>
+</main>

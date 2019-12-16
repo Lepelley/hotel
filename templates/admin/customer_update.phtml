@@ -1,0 +1,60 @@
+<main>
+    <h2>Modification d'un profil</h2>
+    <form action="" method="post">
+        <p class="form-group w-100">
+            <label for="firstName">Prénom</label>
+            <input value="<?= $customer->getFirstName() ?>" class="form-control" type="text" name="firstName" id="firstName" required>
+        </p>
+
+        <p class="form-group w-100">
+            <label for="lastName">Nom de famille</label>
+            <input value="<?= $customer->getLastName() ?>" class="form-control" type="text" name="lastName" id="lastName" required>
+        </p>
+
+        <p class="form-group w-100">
+            <label for="email">Email</label>
+            <input value="<?= $customer->getEmail() ?>" class="form-control" type="email" name="email" id="email" required>
+        </p>
+
+        <div class="row">
+            <p class="form-group col-md-6">
+                <label for="title">Civilité</label>
+                <select class="form-control" name="title" id="title" required>
+                    <option value="F" <?= ($customer->getTitle() === 'F') ? 'selected' : '' ?>>
+                        Madame
+                    </option>
+                    <option value="Monsieur" <?= ($customer->getTitle() === 'Monsieur' ? 'selected' : '') ?>>
+                        Monsieur
+                    </option>
+                </select>
+            </p>
+
+            <p class="form-group col-md-6">
+                <label for="phone">Téléphone</label>
+                <input value="<?= $customer->getPhone() ?>" class="form-control" type="tel" name="phone" id="phone" required>
+            </p>
+        </div>
+
+        <div class="row">
+            <p class="form-group col-md-4">
+                <label for="address">Adresse</label>
+                <input value="<?= $customer->getAddress() ?>" class="form-control" type="text" name="address" id="address" required>
+            </p>
+
+            <p class="form-group col-md-4">
+                <label for="city">Ville</label>
+                <input value="<?= $customer->getCity() ?>" class="form-control" type="text" name="city" id="city" required>
+            </p>
+
+            <p class="form-group col-md-4">
+                <label for="country">Pays</label>
+                <input value="<?= $customer->getCountry() ?>" class="form-control" type="text" name="country" id="country" required>
+            </p>
+        </div>
+
+        <input type="hidden" name="_id" value="<?= $customer->getId() ?>">
+
+        <button type="submit" class="btn btn-secondary">Modifier</button>
+    </form>
+
+</main>

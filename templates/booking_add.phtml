@@ -1,0 +1,36 @@
+<main>
+    <form action="" method="post">
+        <div class="row">
+
+            <p class="form-group col-lg-2">
+                <label for="adults">Nombre d'adultes</label>
+                <select class="form-control" name="adults" id="adults" required>
+                    <?php for ($i = 1; $i <= 4; $i++) : ?>
+                        <option><?= $i ?></option>
+                    <?php endfor; ?>
+                </select>
+            </p>
+
+            <p class="form-group col-lg-2">
+                <label for="children">Nombre d'enfants</label>
+                <select class="form-control" name="children" id="children" required>
+                    <?php for ($i = 0; $i <= 4; $i++) : ?>
+                        <option><?= $i ?></option>
+                    <?php endfor; ?>
+                </select>
+            </p>
+
+            <p class="form-group col-lg-2">
+                <label for="checkinDate">Date d'arrivée</label>
+                <input class="form-control" type="date" name="checkinDate" id="checkinDate" required>
+            </p>
+
+            <p class="form-group col-lg-2">
+                <label for="checkoutDate">Date de départ</label>
+                <input class="form-control" type="date" name="checkoutDate" id="checkoutDate" required>
+            </p>
+
+        </div>
+        <button type="submit" class="btn btn-secondary">Réserver</button>
+    </form>
+</main>

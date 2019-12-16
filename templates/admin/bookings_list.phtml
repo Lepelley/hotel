@@ -1,0 +1,40 @@
+<main>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Client</th>
+                <th scope="col">Date d'arrivée</th>
+                <th scope="col">Date de départ</th>
+                <th scope="col">Nombre d'adulte</th>
+                <th scope="col">Nombre d'enfant</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach($bookings as $key => $booking) : ?>
+            <tr>
+                <td><?= $booking->getCustomerId() ?></td>
+                <td>
+                    <?= ($booking->getTitle() == 'F') ? 'Madame' : 'Monsieur' ?>
+                    <?= htmlspecialchars($booking->getLastName()) ?>
+                    <?= htmlspecialchars($booking->getFirstName()) ?>
+                </td>
+                <td><?= (new \DateTime($booking->getCheckinDate()))->format('d/m/Y') ?></td>
+                <td><?= (new \DateTime($booking->getCheckoutDate()))->format('d/m/Y') ?></td>
+                <td><?= (int) $booking->getAdults() ?></td>
+                <td><?= (int) $booking->getChildren() ?></td>
+                <td>
+                    <a href="<?= route_to_url('admin/booking/check'); ?>?id=<?= $key ?>" class="btn btn-primary">
+                        Vérifier
+                    </a>
+                    <a href="<?= route_to_url('admin/booking/delete') ?>?id=<?= $key ?>" class="btn btn-danger">
+                        Supprimer
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
+</main>

@@ -1,0 +1,58 @@
+<main>
+    <h2>Enregistrement</h2>
+    <form action="" method="post">
+        <p class="form-group w-100">
+            <label for="firstName">Prénom</label>
+            <input class="form-control" type="text" name="firstName" id="firstName" required>
+        </p>
+
+        <p class="form-group w-100">
+            <label for="lastName">Nom de famille</label>
+            <input class="form-control" type="text" name="lastName" id="lastName" required>
+        </p>
+
+        <p class="form-group w-100">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" name="email" id="email" required>
+        </p>
+
+        <p class="form-group w-100">
+            <label for="password">Mot de passe</label>
+            <input class="form-control" type="password" name="password" id="password" required>
+        </p>
+
+        <div class="row">
+            <p class="form-group col-md-6">
+                <label for="title">Civilité</label>
+                <select class="form-control" name="title" id="title" required>
+                    <option value="F">Madame</option>
+                    <option value="M">Monsieur</option>
+                </select>
+            </p>
+
+            <p class="form-group col-md-6">
+                <label for="phone">Téléphone</label>
+                <input class="form-control" type="tel" name="phone" id="phone" required>
+            </p>
+        </div>
+
+        <div class="row">
+            <p class="form-group col-md-4">
+                <label for="address">Adresse</label>
+                <input class="form-control" type="text" name="address" id="address" required>
+            </p>
+
+            <p class="form-group col-md-4">
+                <label for="city">Ville</label>
+                <input class="form-control" type="text" name="city" id="city" required>
+            </p>
+
+            <p class="form-group col-md-4">
+                <label for="country">Pays</label>
+                <input class="form-control" type="text" name="country" id="country" required>
+            </p>
+        </div>
+
+        <button type="submit" class="btn btn-secondary">S'enregistrer</button>
+    </form>
+</main>

@@ -1,0 +1,71 @@
+<main>
+    <h2>Modification d'une chambre</h2>
+    <form action="" method="post">
+        <p class="form-group w-100">
+            <label for="number">Numéro</label>
+            <input value="<?= $room->getNumber() ?>" class="form-control" type="text" name="number" id="number" required>
+        </p>
+
+        <p class="form-group w-100">
+            <label for="floor">Etage</label>
+            <input value="<?= $room->getFloor() ?>" class="form-control" type="text" name="floor" id="floor" required>
+        </p>
+
+        <p class="form-group w-100">
+            <label for="email">Nombre de lits</label>
+            <input value="<?= $room->getBeds() ?>" class="form-control" type="text" name="floor" id="floor" required>
+        </p>
+
+        <p class="form-group w-100">
+            <label for="email">Coût par nuit</label>
+            <input value="<?= $room->getCostPerNight() ?>" class="form-control" type="text" name="floor" id="floor" required>
+        </p>
+
+        <p class="form-group w-100">
+            <label for="type">Type</label>
+            <select class="form-control" name="type" id="type" required>
+                <?php
+                $types = ['Simple', 'Double', 'Supérieur', 'Suite'];
+                foreach ($types as $type) : ?>
+                    <option <?= ($type == $room->getType()) ? 'checked' : '' ?>><?= $type ?></option>
+                <?php endforeach; ?>
+            </select>
+        </p>
+
+        <p>Air conditionné</p>
+        <p class="form-check">
+            <input class="form-check-input" type="radio" name="hasAirConditioner"
+                id="airYes" value="1" <?= ($room->getHasAirConditioner()) ? 'checked' : '' ?>>
+            <label class="form-check-label" for="airYes">
+                Oui
+            </label>
+        </p>
+        <p class="form-check">
+            <input class="form-check-input" type="radio" name="hasAirConditioner"
+                id="airNo" value="0" <?= (!$room->getHasAirConditioner()) ? 'checked' : '' ?>>
+            <label class="form-check-label" for="airNo">
+                Non
+            </label>
+        </p>
+
+        <p>Télévision</p>
+        <p class="form-check">
+            <input class="form-check-input" type="radio" name="hasTelevision"
+                id="teleYes" value="1" <?= ($room->getHasTelevision()) ? 'checked' : '' ?>>
+            <label class="form-check-label" for="teleYes">
+                Oui
+            </label>
+        </p>
+        <p class="form-check">
+            <input class="form-check-input" type="radio" name="hasTelevision"
+                id="teleNo" value="0" <?= (!$room->getHasTelevision()) ? 'checked' : '' ?>>
+            <label class="form-check-label" for="teleNo">
+                Non
+            </label>
+        </p>
+
+        <input type="hidden" name="_id" value="<?= $room->getId() ?>">
+
+        <button type="submit" class="btn btn-secondary">Modifier</button>
+    </form>
+</main>

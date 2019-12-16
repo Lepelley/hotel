@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Le Gros Dodo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+        
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to_url('') ?>">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to_url('clean') ?>">Nettoyage des données</a>
+            </li>
+            <?php if (isset($isAdmin) && $isAdmin) : ?>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to_url('booking/add') ?>">Réserver</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to_url('admin') ?>">Administration</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to_url('login') ?>">Déconnexion</a>
+            </li>
+            <?php elseif (isset($isLog) && $isLog) : ?>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to_url('booking/add') ?>">Réserver</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to_url('login') ?>">Déconnexion</a>
+            </li>
+            <?php else : ?>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to_url('register') ?>">Créer un compte</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to_url('login') ?>">Connexion</a>
+            </li>
+            <?php endif; ?>
+        </ul>
+    </div>
+</nav> 
