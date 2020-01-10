@@ -14,6 +14,9 @@
             </li>
             <?php if (isset($isAdmin) && $isAdmin) : ?>
             <li class="nav-item">
+                <a class="nav-link" href="<?= route_to_url('clean') ?>">Nettoyage des données</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="<?= route_to_url('booking/add') ?>">Réserver</a>
             </li>
             <li class="nav-item">
